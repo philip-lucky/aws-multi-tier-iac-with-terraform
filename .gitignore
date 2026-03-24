@@ -1,0 +1,15 @@
+# Local terraform directory
+.terraform/
+
+# .tfstate files (Contains sensitive IP/ID/Secret info)
+*.tfstate
+*.tfstate.backup
+*.tfstate.lock.info
+
+# Sensitive variables file
+*.tfvars
+*.tfvars.json
+
+# Private keys (if any are in this folder)
+*.pem
+

@@ -1,0 +1,31 @@
+---
+- name: Configure Web Servers
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install Node.js
+      dnf:  # Use dnf for Amazon Linux 2023
+        name: nodejs
+        state: present
+
+    - name: Create App Directory
+  file:
+    path: /opt/node-app
+    state: directory
+    mode: '0755'
+
+    - name: Create Node.js web server
+      copy:
+        dest: /opt/node-app/app.js
+        content: |
+          const http = require('http');
+          http.createServer((req, res) => {
+            res.writeHead(200, { 'Content-Type': 'text/plain' });
+            res.end('DevSecOps Portfolio: Multi-Tier Architecture Live!');
+          }).listen(80);
+
+    - name: Start Node app as a System Service (The Right Way)
+      shell: "nohup node /opt/node-app/app.js > /dev/null 2>&1 &"
+      async: 10 # Tells Ansible to let it run in background
+      poll: 0
+
