@@ -13,9 +13,7 @@ The architecture includes a custom Virtual Private Cloud (VPC), public and priva
 
 ## Architecture Design
 
-*(Insert your architecture diagram here. You can use tools like Draw.io or Excalidraw to map out the VPC, ALB, ASG, and RDS.)*
 
-![Architecture Diagram](./images/architecture-diagram.png)
 
 ### Core Components:
 * **Networking Tier:** Custom VPC, Internet Gateway, NAT Gateway (Single AZ for cost optimization), Public & Private Subnets.
