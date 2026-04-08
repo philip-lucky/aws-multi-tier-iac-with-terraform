@@ -53,12 +53,12 @@ Ansible installed (along with boto3 and the amazon.aws collection).
 **Phase 1: Provision Infrastructure with Terraform**
 Navigate to the terraform directory: cd terraform
 
-**Initialize the working directory and download provider plugins:**
+Initialize the working directory and download provider plugins:
 ```bash 
 terraform init
 ```
 
-**Review the execution plan:**
+Review the execution plan:
 ```bash
 terraform plan
 ```
