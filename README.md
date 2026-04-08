@@ -36,7 +36,7 @@ aws-multi-tier-iac/
 │   └── playbook.yml      # Installs Node.js and starts the web server
 ├── .gitignore            # Ignores Terraform state files and sensitive data
 └── README.md
-
+```
 
 ### Prerequisites
 To deploy this project, you will need:
@@ -47,29 +47,45 @@ Terraform installed.
 
 Ansible installed (along with boto3 and the amazon.aws collection).
 
+
 ### Deployment Instructions
-Phase 1: Provision Infrastructure with Terraform
+
+**Phase 1: Provision Infrastructure with Terraform**
 Navigate to the terraform directory: cd terraform
 
-Initialize the working directory and download provider plugins:
+**Initialize the working directory and download provider plugins:**
+```bash 
 terraform init
+```
 
-Review the execution plan:
+**Review the execution plan:**
+```bash
 terraform plan
+```
 
 Deploy the infrastructure:
+```bash
 terraform apply -auto-approve
+```
 
-Phase 2: Configure Servers with Ansible
+**Phase 2: Configure Servers with Ansible**
+
 Navigate to the ansible directory:
+
+```bash
 cd ../ansible
+```
 
 Ensure you have the required AWS collections:
+
+```bash
 ansible-galaxy collection install amazon.aws
 pip install boto3
+```
 
 Run the playbook using the dynamic inventory:
+```bash
 ansible-playbook -i inventory_aws_ec2.yml playbook.yml
-
+```
 ### AUTHOR: PHILIP LUCKY
    EMAIL: philipslucky24@gmail.com
